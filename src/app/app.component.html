@@ -1,4 +1,51 @@
+<h1>Formulario</h1>
+<form (ngSubmit)="onRegister()" #myForm="ngForm">
+  <div class="input-group">
+    <label for="name">Nombre</label>
+    <input type="text" required id="name" name="name" [(ngModel)]="register.name">
+    <p>Mensajes de error</p>
+  </div>
+  <div class="input-group">
+    <label for="email">Email</label>
+    <input type="email" required id="email" name="email" [(ngModel)]="register.email">
+    <p>Mensajes de error</p>
+  </div>
+  <div class="input-group">
+    <label for="password">Password</label>
+    <input type="password" required id="password" name="password" [(ngModel)]="register.password">
+    <p>Mensajes de error</p>
+  </div>
+  <button [disabled]="myForm.invalid" type="submit" >Register</button>
+</form>
+<hr/>
+<h1>NgClass & NgStyle</h1>
+<input type="text" required #nameInput4="ngModel" [(ngModel)]="person.name">
+<hr class="line-error"
+    [ngClass]="{
+      'valid': nameInput4.valid,
+      'invalid': nameInput4.invalid
+    }"/>
 
+<hr/>
+<h1>Class & Style</h1>
+<input type="text" required #nameInput2="ngModel" [(ngModel)]="person.name">
+<p class="message-error" [class.invalid]="nameInput2.invalid">
+  El campo es requerido
+</p>
+<label>Nombre</label>
+<input type="text" required #nameInput3="ngModel" [(ngModel)]="person.name">
+<p [style.font-style]="nameInput3.invalid ? 'italic' : 'normal'">
+  texto texto texto
+</p>
+<div class="grid-style">
+  <div>
+    <input type="text" [(ngModel)]="widthImg">
+  </div>
+  <div>
+    <img [style.width.%]="widthImg" [src]="person.avatar">
+  </div>
+</div>
+<hr/>
 <h1>ngSwitch</h1>
 <input type="text" required [(ngModel)]="person.name"/>
 <div [ngSwitch]="person.name">

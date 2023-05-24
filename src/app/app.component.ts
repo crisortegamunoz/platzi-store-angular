@@ -7,6 +7,7 @@ import { Product } from './product.model';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  widthImg = 10;
   name = 'Cristian';
   age = 30;
   img = 'https://www.w3schools.com/howto/img_avatar.png';
@@ -15,6 +16,12 @@ export class AppComponent {
     name: 'Cristian',
     age: 30,
     avatar: 'https://www.w3schools.com/howto/img_avatar.png'
+  }
+
+  register = {
+    name: '',
+    email: '',
+    password: ''
   }
 
   names: string[] = ['Cristian', 'Camila', 'Sergio']
@@ -79,6 +86,10 @@ export class AppComponent {
 
   onDelete(index: number) {
     this.names.splice(index, 1);
+  }
+
+  onRegister() {
+    console.log(this.register);
   }
 
 }
